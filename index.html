@@ -1,0 +1,525 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>APK Aquarium & Petshop</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4faff;
+    color: #123047;
+}
+
+header {
+    background: #063b61;
+    color: white;
+    padding: 18px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.logo span {
+    color: #54e5ff;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 10px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #54e5ff;
+}
+
+.hero {
+    min-height: 480px;
+    background:
+    linear-gradient(90deg,
+    rgba(0,25,50,.85),
+    rgba(0,25,50,.15)),
+    url("https://images.unsplash.com/photo-1535591273668-578e31182c4f?auto=format&fit=crop&w=1600&q=85");
+
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    padding: 50px 8%;
+    color: white;
+}
+
+.hero-content {
+    max-width: 600px;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 18px;
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+.btn {
+    display: inline-block;
+    background: #00b8d9;
+    color: white;
+    padding: 14px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 5px;
+}
+
+.btn:hover {
+    background: #0086a8;
+}
+
+section {
+    padding: 65px 8%;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 15px;
+    color: #063b61;
+}
+
+.section-description {
+    text-align: center;
+    margin-bottom: 35px;
+    color: #607789;
+}
+
+.categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+}
+
+.category {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 0 5px 20px #00000012;
+    transition: .3s;
+}
+
+.category:hover {
+    transform: translateY(-6px);
+}
+
+.category img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+}
+
+.category h3 {
+    padding: 18px;
+    color: #063b61;
+}
+
+.products {
+    background: #e8f6fc;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 22px;
+}
+
+.product {
+    background: white;
+    padding: 15px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 18px #00000010;
+}
+
+.product img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.product h3 {
+    margin: 15px 0 8px;
+}
+
+.product p {
+    color: #607789;
+    margin-bottom: 12px;
+}
+
+.product button {
+    background: #063b61;
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.product button:hover {
+    background: #00a9ca;
+}
+
+.about {
+    text-align: center;
+    line-height: 1.9;
+    max-width: 850px;
+    margin: auto;
+}
+
+.contact {
+    background: #063b61;
+    color: white;
+    text-align: center;
+}
+
+.contact h2 {
+    color: white;
+}
+
+.contact p {
+    margin: 15px 0;
+}
+
+footer {
+    background: #02253e;
+    color: white;
+    text-align: center;
+    padding: 25px;
+}
+
+.whatsapp {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #25d366;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 4px 15px #0003;
+    z-index: 10;
+}
+
+@media(max-width: 700px) {
+    header {
+        justify-content: center;
+        text-align: center;
+        gap: 15px;
+    }
+
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    nav a {
+        margin: 7px;
+    }
+
+    .hero h1 {
+        font-size: 34px;
+    }
+
+    .hero {
+        min-height: 400px;
+    }
+
+    section {
+        padding: 45px 5%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">
+        APK <span>AQUARIUM & PETSHOP</span>
+    </div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#categories">Categories</a>
+        <a href="#products">Products</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<!-- HOME -->
+
+<section class="hero" id="home">
+    <div class="hero-content">
+
+        <h1>Welcome to APK Aquarium & Petshop</h1>
+
+        <p>
+            Discover beautiful aquarium fishes, aquarium accessories,
+            pet supplies and everything your lovely pets need.
+            Quality products and happy pets are our priority.
+        </p>
+
+        <a href="#products" class="btn">
+            Explore Products
+        </a>
+
+        <a href="#contact" class="btn">
+            Contact Us
+        </a>
+
+    </div>
+</section>
+
+<!-- CATEGORIES -->
+
+<section id="categories">
+
+    <h2 class="section-title">Our Categories</h2>
+
+    <p class="section-description">
+        Everything for your aquarium and your beloved pets.
+    </p>
+
+    <div class="categories">
+
+        <div class="category">
+            <img src="https://images.unsplash.com/photo-1524704654690-b56c05c78a00?auto=format&fit=crop&w=600&q=80"
+            alt="Aquarium fish">
+
+            <h3>🐠 Aquarium Fishes</h3>
+        </div>
+
+        <div class="category">
+            <img src="https://images.unsplash.com/photo-1545249390-6bdfa286032f?auto=format&fit=crop&w=600&q=80"
+            alt="Aquarium">
+
+            <h3>🌿 Aquarium Accessories</h3>
+        </div>
+
+        <div class="category">
+            <img src="https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=600&q=80"
+            alt="Dog">
+
+            <h3>🐶 Pet Accessories</h3>
+        </div>
+
+        <div class="category">
+            <img src="https://images.unsplash.com/photo-1573865526739-10659fec78a5?auto=format&fit=crop&w=600&q=80"
+            alt="Cat">
+
+            <h3>🐱 Pet Care Products</h3>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- PRODUCTS -->
+
+<section class="products" id="products">
+
+    <h2 class="section-title">Our Products</h2>
+
+    <p class="section-description">
+        Explore our aquarium and pet shop products.
+        Contact us for availability and prices.
+    </p>
+
+    <div class="product-grid">
+
+        <div class="product">
+            <img src="https://images.unsplash.com/photo-1524704654690-b56c05c78a00?auto=format&fit=crop&w=600&q=80"
+            alt="Aquarium fish">
+
+            <h3>Beautiful Aquarium Fishes</h3>
+
+            <p>Colorful freshwater fish</p>
+
+            <button onclick="orderProduct('Aquarium Fishes')">
+                Enquire Now
+            </button>
+        </div>
+
+        <div class="product">
+            <img src="https://images.unsplash.com/photo-1545249390-6bdfa286032f?auto=format&fit=crop&w=600&q=80"
+            alt="Aquarium setup">
+
+            <h3>Aquarium Setup</h3>
+
+            <p>Beautiful aquarium essentials</p>
+
+            <button onclick="orderProduct('Aquarium Setup')">
+                Enquire Now
+            </button>
+        </div>
+
+        <div class="product">
+            <img src="https://images.unsplash.com/photo-1589924691995-400dc9ecc119?auto=format&fit=crop&w=600&q=80"
+            alt="Pet food">
+
+            <h3>Pet Food</h3>
+
+            <p>Food for your lovely pets</p>
+
+            <button onclick="orderProduct('Pet Food')">
+                Enquire Now
+            </button>
+        </div>
+
+        <div class="product">
+            <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&w=600&q=80"
+            alt="Pet accessories">
+
+            <h3>Pet Accessories</h3>
+
+            <p>Essential pet care products</p>
+
+            <button onclick="orderProduct('Pet Accessories')">
+                Enquire Now
+            </button>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section id="about">
+
+    <h2 class="section-title">About Our Business</h2>
+
+    <div class="about">
+
+        <p>
+            Welcome to <strong>APK AQUARIUM & PETSHOP</strong>.
+
+            We are passionate about aquarium fishes, beautiful
+            aquatic environments and pet care.
+
+            Our goal is to provide quality aquarium products,
+            fish supplies, pet food and accessories for pet lovers.
+
+            We believe every pet deserves love, care and a
+            comfortable environment.
+
+            Visit our shop and discover products for your
+            aquarium and your lovely pets.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
+
+    <h2 class="section-title">
+        Contact APK Aquarium & Petshop
+    </h2>
+
+    <p>
+        Have questions about aquarium fishes or pet products?
+    </p>
+
+    <p>
+        📍 Madurai, Tamil Nadu
+    </p>
+
+    <p>
+        📞 8754244838
+    </p>
+
+    <a class="btn"
+       href="https://wa.me/918754244838"
+       target="_blank">
+       Chat on WhatsApp
+    </a>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+    <h3>APK AQUARIUM & PETSHOP</h3>
+
+    <p>
+        Aquarium Fishes | Aquarium Accessories | Pet Products
+    </p>
+
+    <p>
+        © 2026 APK Aquarium & Petshop.
+        All Rights Reserved.
+    </p>
+
+</footer>
+
+<!-- WHATSAPP BUTTON -->
+
+<a class="whatsapp"
+   href="https://wa.me/918754244838"
+   target="_blank">
+
+   WhatsApp
+
+</a>
+
+<script>
+
+function orderProduct(productName) {
+
+    const phone = "918754244838";
+
+    const message =
+        "Hello APK Aquarium & Petshop! " +
+        "I am interested in " + productName +
+        ". Please share price and availability.";
+
+    const url =
+        "https://wa.me/" + phone +
+        "?text=" + encodeURIComponent(message);
+
+    window.open(url, "_blank");
+
+}
+
+</script>
+
+</body>
+</html>
